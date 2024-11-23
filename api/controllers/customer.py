@@ -1,14 +1,15 @@
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status, Response, Depends
-from ..models import payment_details as model
+from ..models import customer as model
 from sqlalchemy.exc import SQLAlchemyError
 
 
 def create(db: Session, request):
     new_item = model.Customer(
-        order_id=request.order_id,
-        payment_status=request.payment_status,
-        payment_type=request.payment_type
+        name=request.json['name'],
+        email=request.json['email'],
+        phone=request.json['phone'],
+        address=request.json['address'],
     )
 
     try:
