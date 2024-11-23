@@ -1,3 +1,5 @@
+from operator import index
+
 import uvicorn
 from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
