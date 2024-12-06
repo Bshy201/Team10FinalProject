@@ -12,6 +12,6 @@ class PaymentDetails(Base):
     payment_status = Column(String(300))
 
 
-    order_detail = relationship("Order_Details", back_populates="payment_details")
+    order = relationship("Order", back_populates="payment_details")
 
 
